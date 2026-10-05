@@ -1,0 +1,32 @@
+@model EntradasMvc.ViewModels.CotizacionInputViewModel
+@{
+    ViewData["Title"] = "Nueva Cotización";
+}
+
+<h1>Nueva Cotización</h1>
+
+<form asp-controller="Entradas" asp-action="Calcular" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Cliente"></label>
+        <input asp-for="Cliente" class="form-control" />
+        <span asp-validation-for="Cliente" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Cantidad"></label>
+        <input asp-for="Cantidad" class="form-control" />
+        <span asp-validation-for="Cantidad" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="TipoEntrada"></label>
+        <select asp-for="TipoEntrada" class="form-control">
+            <option value="">Seleccione...</option>
+            <option value="General">General</option>
+            <option value="VIP">VIP</option>
+        </select>
+        <span asp-validation-for="TipoEntrada" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calcular</button>
+</form>
